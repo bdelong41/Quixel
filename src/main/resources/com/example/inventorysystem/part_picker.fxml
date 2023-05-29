@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="242.0" prefWidth="600.0" styleClass="anchor-pane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.inventorysystem.controller.PartPicker">
+   <children>
+      <Button fx:id="outsourcedButton" layoutX="121.0" layoutY="108.0" mnemonicParsing="false" onAction="#outsourced_button_listener" text="Outsourced" />
+      <Button fx:id="inhouseButton" layoutX="412.0" layoutY="108.0" mnemonicParsing="false" onAction="#inhouse_button_listener" text="In House" />
+      <Button fx:id="closeCancelButton" layoutX="274.0" layoutY="147.0" mnemonicParsing="false" onAction="#dontApply_button_listener" text="Cancel" />
+   </children>
+</AnchorPane>

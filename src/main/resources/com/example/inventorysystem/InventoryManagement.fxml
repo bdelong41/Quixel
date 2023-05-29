@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckMenuItem?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane fx:id="grid" alignment="center" hgap="10" prefHeight="394.0" prefWidth="970.0" styleClass="grid-pane" vgap="10" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.inventorysystem.controller.InventoryManagement">
+    <columnConstraints>
+        <ColumnConstraints />
+        <ColumnConstraints />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints />
+    </rowConstraints>
+    <children>
+        <AnchorPane fx:id="A_Anchor" prefHeight="394.0" prefWidth="934.0">
+         <children>
+             <Pane fx:id="parts_anchor" layoutX="37.0" layoutY="91.0" prefHeight="250.0" prefWidth="400.0">
+                 <children>
+                     <TableView fx:id="part_tableView" layoutX="7.0" layoutY="37.0" prefHeight="160.0" prefWidth="386.0">
+                         <placeholder>
+                             <Label text="no part data is stored" />
+                         </placeholder>
+                         <columns>
+                             <TableColumn fx:id="part_partID_tableColumn" prefWidth="75.0" text="Part ID" />
+                             <TableColumn fx:id="part_partName_tableColumn" prefWidth="75.0" text="Part Name" />
+                             <TableColumn fx:id="part_inventoryLevel_tableColumn" prefWidth="109.0" text="Inventory Level" />
+                             <TableColumn fx:id="part_priceCost_tableColumn" prefWidth="125.0" text="Price/Cost per Unit" />
+                         </columns>
+                     </TableView>
+                     <Label layoutX="33.0" layoutY="14.0" text="Parts" />
+                     <TextField fx:id="part_search_textarea" layoutX="227.0" layoutY="10.0" onKeyReleased="#generatePartsSearchError" onKeyTyped="#checkPartsTable" promptText="Search By Product ID or Name" styleClass="text-field" />
+                     <Button fx:id="part_modify_button" layoutX="248.0" layoutY="211.0" mnemonicParsing="false" onAction="#part_modify_button_listener" text="Modify" />
+                     <Button fx:id="part_delete_button" layoutX="324.0" layoutY="211.0" mnemonicParsing="false" onAction="#part_delete_button_listener" text="Delete" />
+                     <Button fx:id="part_add_button" layoutX="200.0" layoutY="211.0" mnemonicParsing="false" onAction="#part_add_button_listener" text="Add" />
+                 </children>
+             </Pane>
+
+            <Pane fx:id="products_anchor" layoutX="526.0" layoutY="91.0" prefHeight="250.0" prefWidth="400.0">
+               <children>
+                   <TableView fx:id="product_tableView" layoutX="7.0" layoutY="37.0" prefHeight="160.0" prefWidth="386.0">
+                       <placeholder>
+                           <Label text="no product data is stored" />
+                       </placeholder>
+                       <columns>
+                           <TableColumn fx:id="product_productID_tableColumn" prefWidth="75.0" text="Product ID" />
+                           <TableColumn fx:id="product_productName_tableColumn" prefWidth="75.0" text="Product Name" />
+                           <TableColumn fx:id="product_inventoryLevel_tableColumn" prefWidth="109.0" text="Inventory Level" />
+                           <TableColumn fx:id="product_priceCost_tableColumn" prefWidth="125.0" text="Price/Cost per Unit" />
+                       </columns>
+                   </TableView>
+                  <Label layoutX="33.0" layoutY="14.0" text="Products" />
+                  <TextField fx:id="product_search_textarea" layoutX="227.0" layoutY="10.0" onKeyReleased="#generateProductsSearchError" onKeyTyped="#checkProductsTable" promptText="Search By Product ID or Name" />
+                  <Button fx:id="product_modify_button" layoutX="248.0" layoutY="211.0" mnemonicParsing="false" onAction="#product_modify_button_listener" text="Modify" />
+                  <Button fx:id="product_delete_button" layoutX="324.0" layoutY="211.0" mnemonicParsing="false" onAction="#product_delete_button_listener" text="Delete" />
+                  <Button fx:id="product_add_button" layoutX="200.0" layoutY="211.0" mnemonicParsing="false" onAction="#product_add_button_listener" text="Add" />
+               </children>
+            </Pane>
+            <Label layoutX="37.0" layoutY="53.0" text="Inventory Management System" />
+            <Button fx:id="exitButton" layoutX="876.0" layoutY="346.0" mnemonicParsing="false" onAction="#exit" text="exit" />
+            <MenuBar fx:id="Menu_Bar" layoutY="1.0" prefHeight="26.0" prefWidth="991.0">
+              <menus>
+                <Menu fx:id="MenuFile" mnemonicParsing="false" styleClass="menu-class" text="File">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#exit" text="Close" />
+                        <MenuItem fx:id="ConnectToDB" mnemonicParsing="false" onAction="#addConnectionListener" text="Connect DB" />
+                  </items>
+                </Menu>
+                  <Menu mnemonicParsing="false" text="View">
+                    <items>
+                        <CheckMenuItem fx:id="contentTheme" mnemonicParsing="false" onAction="#changeTheme" selected="true" text="DarkMode" />
+                    </items>
+                  </Menu>
+              </menus>
+            </MenuBar>
+            <Label fx:id="dataBaseConnectionError" layoutX="421.0" layoutY="61.0" prefHeight="18.0" prefWidth="177.0" text="Failed to connect to database" textFill="#f70303" visible="false" />
+         </children></AnchorPane>
+    </children>
+</GridPane>
