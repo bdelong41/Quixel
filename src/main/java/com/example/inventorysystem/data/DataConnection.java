@@ -5,15 +5,15 @@ import java.io.IOException;
 import java.sql.*;
 public class DataConnection {
     private static String url;
-    private static String uname;
-    private static String passwd;
+    private static String uname = "Quixel";
+    private static String passwd = "Passw0rd!";
     private static Connection con;
 
     //connection string vars
-    private static String serverName;
+    private static String serverName = "172.16.0.6";
 
-    private static String port;
-    private static String databaseName;
+    private static String port = "3306";
+    private static String databaseName = "InventorySystem";
 
 
 
